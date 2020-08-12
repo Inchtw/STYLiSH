@@ -8,7 +8,8 @@ const mysql_module = require('../../../util/mysqlcon');
 
 
 const redis = require('redis');
-const client = redis.createClient();
+const REDIS_PORT = process.env.REDIS_PORT || 6379;
+const client = redis.createClient(REDIS_PORT);
 
 client.on('error', function (error) {
     console.error(error);

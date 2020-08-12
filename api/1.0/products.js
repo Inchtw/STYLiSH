@@ -8,7 +8,8 @@ router.use(bodyParser.urlencoded({ extended: false }));
 const { query } = require('../../util/mysqlcon');
 
 const redis = require('redis');
-const client = redis.createClient();
+const REDIS_PORT = process.env.REDIS_PORT || 6379;
+const client = redis.createClient(REDIS_PORT);
 
 
 
