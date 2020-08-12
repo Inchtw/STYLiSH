@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- title /名稱 -->
+    <title>Inch's week_1_part_3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-size: 16px;
+            font-family: "Noto Sans TC", "微軟正黑體", "新細明體", arial, sans-serif;
+            color: #3f3a3a;
+            line-height: 2.5em;
+        }
+
+        textarea {
+            width: 400px;
+            height: 100px;
+            padding: 5px;
+        }
+
+        input {
+            width: 300px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Create a New Campaign</h3>
+    <form id="campaignsForm" enctype="multipart/form-data">
+        Product ID <input type="text" name="product_id" id="product_id" /><br />
+        Picture <input type="file" name="picture" /><br />
+        Story<br /><textarea name="story"></textarea><br />
+        <button type="button" id="add_camapign" onclick="sendCampagin()"> submit Campaign</button>
+    </form>
+</body>
+
+<script>
+    function sendCampagin() {
+        let form = document.getElementById("campaignsForm")
+        let formData = new FormData(form)
+        let uri = `/admin/campaigns`
+        fetch(uri, {
+            method: 'POST',
+            body: formData
+
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+
+            })
+    }
+</script>
+
+</html>

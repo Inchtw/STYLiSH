@@ -1,0 +1,360 @@
+* body {
+    background: rgb(255, 255, 255);
+    /* font-family: 'Lato', sans-serif; */
+  }
+  
+  h1 {
+    color: #8291AC;
+    font-size: 1.2rem;
+  }
+  .none{
+      display: 'none';
+  }
+  .show{
+      display: block;
+  }
+  
+  .content {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+  
+  .wrapper {
+    position: relative;
+    width: 600px;
+    margin: 80px auto;
+    background: #FFF;
+    border-radius: 5px;
+    box-shadow: 0 0 26px rgba(0, 0, 0, 0.13);
+  }
+  
+  .wrapper .profile {
+    position: relative;
+    margin: 100px 0px auto;
+    background: #FFF;
+    border-radius: 5px;
+    /* box-shadow: 0 0 26px rgba(0, 0, 0, 0.13); */
+  }
+  .profile .photo {
+    position: relative;
+    vertical-align: middle;
+    /* height: ; */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .profile .photo img{
+    position: relative;
+    height: 250px;
+    /* left: 50%; */
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 26px rgba(0, 0, 0, 0.13);
+    padding: 15px 10px ;
+    margin-bottom: 10px ;
+  }
+  .profile .id ,.name{
+      text-align: center;
+  }
+
+
+  .profile .logout-btn{
+    margin: 10px 0px 0px;
+    background-color: #3f3a3a;
+  }
+  .registred {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background: #FFF;
+    display: none;
+    margin: 100px auto;
+    text-align: center;
+  }
+
+.register-button {
+    width: 100%;
+    position: relative;
+    height: 50px;
+    background-color: #313538;
+    color: #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin: 24px 0 16px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: .1rem;
+    font-weight: 100;
+}
+  .registred button {
+    width: 100px;
+    background: #313538;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 15px;
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    color: #FFF;
+  }
+  .registred h1 {
+    font-size: 1rem;
+  }
+  
+  /* .login--content {
+    display: none;
+  } */
+  .register--content {
+    display: none;
+  }
+  
+  .register--content, .login--content {
+    width: 500px;
+    margin: 60px auto;
+  }
+  
+  .floating-label {
+    position: absolute;
+    pointer-events: none;
+    left: 0px;
+    top: 20px;
+    font-size: 11px;
+    color: #B3BBCE;
+    -webkit-transition: 0.2s ease all;
+    transition: 0.2s ease all;
+  }
+  
+  .email, .password, .name {
+    position: relative;
+    margin: 20px 0;
+  }
+  
+  .inputText {
+    font-size: 12px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid #B3BBCE;
+    outline: none;
+    color: #9390A1;
+    font-weight: 900;
+  }
+  
+  input:focus ~ .floating-label,
+  input:not(:focus):valid ~ .floating-label {
+    top: 2px;
+    bottom: 10px;
+    left: 0px;
+    font-size: 11px;
+    opacity: 1;
+    color: #313538;
+  }
+  
+  .social_fb {
+    /* display: flex; */
+    width: 100%;
+    background: #3B5999;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 5px;
+    
+  }
+  .fb_iframe_widget span{vertical-align:middle !important;}
+  .fb_iframe_widget span {
+    vertical-align: middle;
+}
+.new_register {
+    height: 60px;
+    text-align: ledt;
+}
+.new_register span{
+    vertical-align: top;
+    text-align: left;
+    text-decoration: none;
+    color: #FFF;
+}
+  .social_fb p {
+    text-decoration: none;
+    color: #FFF;
+  }
+  .social_fb span i {
+    color: #fff;
+    float: left;
+    line-height: 45px;
+    margin-left: 26px;
+  }
+  
+  .via-email {
+    text-align: center;
+    padding: 20px 0;
+    color: #8291AC;
+  }
+  
+  input[type="button"] {
+    width: 100%;
+    position: relative;
+    height: 50px;
+    background-color: #313538;
+    color: #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin: 24px 0 16px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: .1rem;
+    font-weight: 100;
+  }
+  
+  .login--button {
+    position: absolute;
+    top: -30px;
+    right: 0;
+  }
+  .login--button span {
+    color : #8291AC
+  }
+  .login--button a {
+    background: #313538;
+    padding: 7px 14px;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+
+  @media (max-width:1000px){
+    .wrapper {
+      position: relative;
+      width: auto;
+      margin: 80px auto;
+      background: #FFF;
+      border-radius: 5px;
+      box-shadow: 0 0 26px rgba(0, 0, 0, 0.13);
+    }
+    
+    .wrapper .profile {
+      position: relative;
+      margin: 100px 0px auto;
+      background: #FFF;
+      border-radius: 5px;
+      /* box-shadow: 0 0 26px rgba(0, 0, 0, 0.13); */
+    }
+    .profile .photo {
+      position: relative;
+      vertical-align: middle;
+      /* height: ; */
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .profile .photo img{
+      position: relative;
+      height: 250px;
+      /* left: 50%; */
+      vertical-align: middle;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 0 26px rgba(0, 0, 0, 0.13);
+      padding: 15px 10px ;
+      margin-bottom: 10px ;
+    }
+    .profile .id ,.name{
+        text-align: center;
+    }
+  
+  
+    .profile .logout-btn{
+      margin: 10px 0px 0px;
+      background-color: #3f3a3a;
+    }
+    .registred {
+      position: relative;
+      width: 400px;
+      height: 200px;
+      background: #FFF;
+      display: none;
+      margin: 100px auto;
+      text-align: center;
+    }
+  
+  .register-button {
+      width: 100%;
+      position: relative;
+      height: 50px;
+      background-color: #313538;
+      color: #fff;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      margin: 24px 0 16px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      letter-spacing: .1rem;
+      font-weight: 100;
+  }
+    .registred button {
+      width: 100px;
+      background: #313538;
+      border: none;
+      border-radius: 5px;
+      padding: 7px 15px;
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      color: #FFF;
+    }
+    .registred h1 {
+      font-size: 1rem;
+    }
+    
+    /* .login--content {
+      display: none;
+    } */
+    .register--content {
+      display: none;
+    }
+    
+    .register--content, .login--content {
+      width: 500px;
+      margin: 60px auto;
+    }
+
+    footer{
+      padding-bottom:150px;
+    }
+    footer>.view{
+      display:flex;flex-wrap:wrap;align-items:flex-start;
+    }
+    footer .link{
+      flex-wrap:wrap;margin-left:15px;line-height:30px;width:80px;
+    }
+    footer .link>.item{
+      width:100%;border-right:none;text-align:left;
+    }
+    footer .social{
+      align-self:center;margin-right:15px;width:120px;text-align:center;
+    }
+    footer .social>img{
+      width:24px;height:24px;margin:3px;
+    }
+    footer .copyright{
+      width:100%;text-align:center;margin-top:20px;
+      }
+      
+  }

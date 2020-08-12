@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- title /名稱 -->
+  <title>Inch's week_1_part_4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel='stylesheet' href="./stylesheets/sign.css">
+</head>
+
+<body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v7.0&appId=289201562110981&autoLogAppEvents=1"></script>
+  <div class="content">
+    <div class="wrapper">
+      <div class="register--content">
+        <div class="login--button">
+          <span>If you have an account</span>
+          <a class="btn" data-popup-open="register-popup" href="#">Login</a>
+        </div>
+        <h1>Create a new account</h1>
+        <div class="social">
+          <a href=""><span class="facebook-icon"><i class="fa fa-facebook"></i></span>Register with
+            <strong>Facebook</strong></a>
+        </div>
+        <div class="via-email">
+          <span>or via email</span>
+        </div>
+        <div class="name">
+          <input type="text" class="inputText" id="signup_name" required />
+          <span class="floating-label">Your name</span>
+        </div>
+        <div class="email">
+          <input type="text" class="inputText" id="signup_email" required />
+          <span class="floating-label">Your email</span>
+        </div>
+        <div class="password">
+          <input type="password" class="inputText" id="signup_password" required />
+          <span class="floating-label">Your password</span>
+        </div>
+        <input type="button" class="register-buttton" value="Sing Up" name="register" id="signup_btn"
+          onclick="sendSignData()">
+      </div>
+
+      <div class="login--content">
+
+        <div class="login--button">
+          <span>Create a new account</span>
+          <a class="btn-reg" data-popup-open="register-popup" href="#">Sing up</a>
+        </div>
+        <h1>Login to your account</h1>
+        <div class="social">
+          <a href=""><span class="facebook-icon"><i class="fa fa-facebook"></i></span>Login with
+            <strong>Facebook</strong></a>
+        </div>
+
+
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+
+        <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-size="large"
+          data-button-type="login_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"
+          data-width=""></div>
+
+        <div class="via-email">
+          <span>or via email</span>
+        </div>
+
+        <div class="email">
+          <input type="text" class="inputText" required />
+          <span class="floating-label">Your email</span>
+        </div>
+
+        <div class="password">
+          <input type="text" class="inputText" required />
+          <span class="floating-label">Your password</span>
+        </div>
+        <input type="submit" class="register-buttton" value="Login" name="Login">
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+
+
+<script>
+
+
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '289201562110981', //FB appID
+      autoLogAppEvents: true, // enable cookies to allow the server to access the session
+      xfbml: true, // parse social plugins on this page
+      version: 'v7.0' // use graph api version
+    });
+
+    FB.getLoginStatus(function (response) {
+      statusChangeCallback(response);
+    });
+
+    function statusChangeCallback(response) {
+      if (response.status === 'connected') {
+
+
+      } else {
+        console.log("Not Autho")
+      }
+    }
+    function checkLoginState() {
+      FB.getLoginStatus(function (response) {
+
+      });
+    }
+
+  };
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+</script>
+
+<script>
+  function sendSignData() {
+    let name = document.getElementById('signup_name').value
+    let email = document.getElementById('signup_email').value
+    let password = document.getElementById('signup_password').value
+    let uri = `signup`
+    fetch(uri, {
+      method: 'POST',
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log()
+      })
+  }
+
+
+</script>
+
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>

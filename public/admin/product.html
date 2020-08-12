@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- title /名稱 -->
+    <title>Inch's week_0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-size: 16px;
+            font-family: "Noto Sans TC", "微軟正黑體", "新細明體", arial, sans-serif;
+            color: #3f3a3a;
+            line-height: 2.5em;
+        }
+
+        textarea {
+            width: 400px;
+            height: 100px;
+            padding: 5px;
+        }
+
+        input {
+            width: 300px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Create a New Product</h3>
+    <form id="productForm" enctype="multipart/form-data">
+        ID <input type="text" name="id" id="product_id" /><br />
+        Category <select name="category" id="category" required>
+            <option value="women">Women</option>
+            <option value="men">Men</option>
+            <option value="accessories">Accessories</option>
+        </select><br />
+        Title <input type="text" name="title" id="title" required /><br />
+
+        Description<br /><textarea name="description" id="description" required></textarea><br />
+        Price <input type="text" name="price" id="price" required />
+        <hr />
+        Texture <input type="text" name="texture" id="texture" required /><br />
+        Wash <input type="text" name="wash" id="wash" required /><br />
+        Place of Production <input type="text" name="place" id="place" required /><br />
+        Note <input type="text" name="note" id="note" />
+        <hr />
+        Story<br /><textarea name="story" id="story"></textarea><br />
+        Main Image <input type="file" name="main_image" /><br />
+        Other Images <input type="file" name="other_images" multiple /><br />
+        <button type="button" onclick="sendProduct()">Create</button>
+    </form>
+    <div>
+        <h1>Variants</h1>
+        Color Code <select type="text" name="color_code" id="color_code">
+            <option value="FFFFFF">＃FFFFFF</option>
+            <option value="FFDDDD">#FFDDDD</option>
+            <option value="DDFFBB">#DDFFBB</option>
+            <option value="DDF0FF">#DDF0FF</option>
+            <option value="CCCCCC">#CCCCCC</option>
+            <option value="BB7744">#BB7744</option>
+            <option value="334455">#334455</option>
+        </select>
+        Color Name <select type="text" name="color_name" id="color_name">
+            <option value="白色">白色</option>
+            <option value="粉紅">粉紅</option>
+            <option value="亮綠">亮綠</option>
+            <option value="淺藍">淺藍</option>
+            <option value="淺灰">淺灰</option>
+            <option value="淺棕">淺棕</option>
+            <option value="深藍">深藍</option>
+        </select><br />
+        Size <select type="text" name="size" id="size" placeholder="S,M,L,XL,F">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="F">F</option>
+        </select>
+        Stock <input type="text" name="stock" id="stock" />
+
+        <div id="load" class="load_vari_input"></div>
+        <button type="button" id="add_var" onclick="sendS()"> submit Variants</button>
+
+    </div>
+</body>
+
+<script>
+
+    function sendS() {
+        let stock = document.getElementById('stock').value
+        let color_name = document.getElementById('color_name').value
+        let color_code = document.getElementById('color_code').value
+        let size = document.getElementById('size').value
+        let id = document.getElementById('product_id').value
+        let uri = `/admin/variant`
+        fetch(uri, {
+            method: 'POST',
+            body: JSON.stringify({
+                color_code: color_code,
+                color_name: color_name,
+                size: size,
+                stock: stock,
+                id: id
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+
+            })
+    }
+    function sendProduct() {
+        let form = document.getElementById("productForm")
+        let formData = new FormData(form)
+        let uri = `/admin/product`
+        fetch(uri, {
+            method: 'POST',
+            body: formData
+
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+
+            })
+    }
+</script>
+
+</html>

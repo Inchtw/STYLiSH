@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- title /名稱 -->
+    <title>Inch's week_0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-size: 16px;
+            font-family: "Noto Sans TC", "微軟正黑體", "新細明體", arial, sans-serif;
+            color: #3f3a3a;
+            line-height: 2.5em;
+        }
+
+        textarea {
+            width: 400px;
+            height: 100px;
+            padding: 5px;
+        }
+
+        input {
+            width: 300px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Get Orders</h3>
+    <form id="productForm">
+        <button type="button" onclick="getArthurAPI()">GetProductNOW!!</button>
+    </form>
+   
+</body>
+
+<script>
+
+    function getArthurAPI() {
+        let uri = `admin/getOrders`;
+        fetch(uri, {
+            method: 'GET',
+        })
+        .then(res => res)
+        .then(result => {
+                alert("get new data!")
+
+            })
+    }
+</script>
+
+</html>

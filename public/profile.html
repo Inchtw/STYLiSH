@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>product Inch's week_2_part_4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel='stylesheet' href="./stylesheet/common.css">
+    <link rel="stylesheet" href="./stylesheet/profile.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<header class="container">
+    <div class="padding-mobile"></div>
+    <!-- nav bar -->
+    <div class="logo"><a href="./"><img src="../images/logo.png" /></a></div>
+    <nav class="container">
+        <div class="item"><a href="./?tag=women">女裝</a></div>
+        <div class="item"><a href="./?tag=men">男裝</a></div>
+        <div class="item acc"><a href="./?tag=accessories">配件</a></div>
+    </nav>
+    <div class="feature">
+        <form class="item" action="./">
+            <input type="text" class="search" name="tag" />
+        </form><a href="cart.html" class="cart item acc">
+            <div id="cart-qty" class="qty"></div>
+        </a>
+        <div class="item member acc">
+            <img src="./images/member.png" />
+        </div>
+    </div>
+</header>
+<nav class="mobile">
+    <div class="item"><a href="./?tag=women">女裝</a></div>
+    <div class="item"><a href="./?tag=men">男裝</a></div>
+    <div class="item"><a href="./?tag=accessories">配件</a></div>
+</nav>
+<div class="padding-header-mobile"></div>
+<div class="feature-mobile">
+    <a class="item" href="cart.html">
+        <div class="cart">
+            <div id="cart-qty-mobile" class="qty"></div>
+        </div>
+        購物車
+    </a>
+    <div class="item member">
+        <a href="profile.html"><img src="./images/member.png" />
+            會員</a>
+    </div>
+</div>
+
+<main>
+    <div class="content">
+        <div class="wrapper">
+            <div class="profile">
+                <div class="photo" id="profile_photo">
+                    <img id="profile_default_img" class="profile_img" src="/images/defaultimg.jpg" alt="">
+                </div>
+                <div class="id" id="profile_id">id：</div><span></span>
+                <div class="name" id="profile_name">大名：</div><span></span>
+                <input class="logout-btn" type="button" onclick="logout()" value="Logout">
+
+            </div>
+
+
+            <form>
+                <div class="register--content">
+                    <div class="login--button">
+                        <!-- <span id="if_have">If you have an account</span> -->
+                        <a class="btn" data-popup-open="register-popup" id="signin_button" href="#">Login</a>
+                    </div>
+                    <h1>Create a new account</h1>
+                    <div class="social_fb new_register">
+                        <span class="facebook-icon">
+                            <div class="fa fa-facebook"></div>
+                        </span><span>Register with
+                            <strong>Facebook</strong></span>
+                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState()">
+                        </fb:login-button>
+                    </div>
+                    <div class="via-email">
+                        <span>or via email</span>
+                    </div>
+                    <div class="name">
+                        <input type="text" class="inputText" id="signup_name" autocomplete="username" required />
+                        <span class="floating-label">Your name</span>
+                    </div>
+                    <div class="email">
+                        <input type="email" class="inputText" id="signup_email" autocomplete="username" required />
+                        <span class="floating-label">Your email</span>
+                    </div>
+                    <div class="password">
+                        <input type="password" class="inputText" id="signup_password" autocomplete="current-password"
+                            required />
+                        <span class="floating-label">Your password</span>
+                    </div>
+                    <input type="button" class="register-buttton" value="Sing Up" name="register" id="signup_btn"
+                        onclick="sendSignUPData()">
+                </div>
+            </form>
+            <!-- <form> -->
+            <div class="login--content">
+
+                <div class="login--button">
+                    <!-- <span id="create_ac">Create a new account</span> -->
+                    <a class="btn-reg" data-popup-open="register-popup" id="signup_button" href="#">Sign up</a>
+                </div>
+                <h1>Login to your account</h1>
+                <div class="social_fb">
+                    <p>
+                        <span class="facebook-icon"><i class="fa fa-facebook"></i></span>
+                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState()">
+                        </fb:login-button>with<strong>Facebook</strong>
+                    </p>
+                    <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" style="position: absolute; " >
+            </fb:login-button> -->
+                </div>
+
+
+
+
+                <!-- <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-size="large"
+            data-button-type="login_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"
+            data-width=""></div> -->
+
+                <div class="via-email">
+                    <span>or via email</span>
+                </div>
+                <form>
+                    <div class="email">
+                        <input type="email" class="inputText" id="signin_email" autocomplete="username" required />
+                        <span class="floating-label">Your email</span>
+                    </div>
+
+                    <div class="password">
+                        <input type="password" class="inputText" id="signin_password" autocomplete="current-password"
+                            required />
+                        <span class="floating-label">Your password</span>
+                    </div>
+                    <input type="button" class=" register-button" name="Login" value="Login" onclick="sendSignINData()">
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<footer>
+    <div class="view">
+        <div class="link link-0 ">
+            <div class="item">關於 Stylish</div>
+            <div class="item">服務條款</div>
+            <div class="item">隱私政策</div>
+        </div>
+        <div class="link link-1 ">
+            <div class="item">聯絡我們</div>
+            <div class="item">FAQ</div>
+        </div>
+        <div class="social ">
+            <img src="./images/line.png" />
+            <img src="./images/twitter.png" />
+            <img src="./images/facebook.png" />
+        </div>
+        <div class="copyright">
+            &copy; 2018. All rights reserved.
+        </div>
+    </div>
+</footer>
+<!-- <div id="loading" class="loading">
+    <img src="./images/loading.gif" /> -->
+</div>
+</body>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '289201562110981', //FB appID
+            autoLogAppEvents: true, // enable cookies to allow the server to access the session
+            xfbml: true, // parse social plugins on this page
+            version: 'v7.0' // use graph api version
+        });
+        // window.FB.AppEvents.logPageView();
+
+        FB.getLoginStatus()
+
+    };
+    function getLoginStatus(response) {
+        statusChangeCallback(response);
+    };
+
+    function statusChangeCallback(response) {
+        if (response.status === 'connected') {
+            let access_token = response.authResponse.accessToken
+            let provider = "facebook"
+            let uri = `/user/signin`;
+            fetch(uri, {
+                method: 'POST',
+                body: JSON.stringify({
+                    access_token: access_token,
+                    provider: provider
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(user_info => {
+                    let { data } = user_info
+                    let token = {}
+                    token.access_token = data.access_token
+                    let { user } = data
+                    // let {email} =user
+                    // let {picture} = user
+                    // let {provider} = user
+                    localStorage.setItem('user_token', JSON.stringify(token))
+                    localStorage.setItem('user_info', JSON.stringify(user))
+                    location.reload();
+
+
+                })
+
+        } else {
+            alert('登入失敗，請再次嘗試')
+            window.location.reload()
+        }
+    }
+
+    function checkLoginState() {
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+
+        });
+    }
+
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script src="./js/front_profile.js"></script>
+
+
+
+</html>
