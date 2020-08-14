@@ -1,4 +1,4 @@
-let cart_orders = JSON.parse(orderformlocal)
+let cart_orders = JSON.parse(orderformlocal);
 // let orders = cart_orders.list
 
 TPDirect.setupSDK(12348, 'app_pa1pQcKoY22IlnSXq5m5WP5jFKzoRG58VEXpT7wU62ud7mMbDOGzCYIlzzLF', 'sandbox');
@@ -55,7 +55,7 @@ TPDirect.card.setup({
             }
         }
     }
-})
+});
 TPDirect.card.onUpdate(function (update) {
     // update.canGetPrime === true
     // --> you can call TPDirect.card.getPrime()
@@ -96,60 +96,60 @@ TPDirect.card.onUpdate(function (update) {
     } else {
         // setNumberFormGroupToNormal()
     }
-})
+});
 
 
 let form_button = document.getElementById('checkout');
 
-form_button.addEventListener("click", onSubmit);
+form_button.addEventListener('click', onSubmit);
 
 function onSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     // 取得 TapPay Fields 的 status
-    const tappayStatus = TPDirect.card.getTappayFieldsStatus()
+    const tappayStatus = TPDirect.card.getTappayFieldsStatus();
 
     // 確認是否可以 getPrime
     if (tappayStatus.canGetPrime === false) {
-        alert('can not get prime')
-        return
+        alert('can not get prime');
+        return;
     }
 
     // Get prime
     TPDirect.card.getPrime((result) => {
         if (result.status !== 0) {
-            alert('get prime error ' + result.msg)
-            return
+            alert('get prime error ' + result.msg);
+            return;
         }
         let recipient = {
-            "name": "Luke",
-            "phone": "0987654321",
-            "email": "luke@gmail.com",
-            "address": "市政府站",
-            "time": "morning"
-        }
+            'name': 'Luke',
+            'phone': '0987654321',
+            'email': 'luke@gmail.com',
+            'address': '市政府站',
+            'time': 'morning'
+        };
 
         let order = {
-            "shipping": "delivery",
-            "payment": "credit_card",
-            "subtotal": 1234,
-            "freight": 14,
-            "total": 1300,
+            'shipping': 'delivery',
+            'payment': 'credit_card',
+            'subtotal': 1234,
+            'freight': 14,
+            'total': 1300,
             recipient
-        }
-        let list = []
+        };
+        let list = [];
         list.push({
-            "id": "201807202157",
-            "name": "活力花紋長筒牛仔褲",
-            "price": 1299,
-            "color": {
-                "code": "DDF0FF",
-                "name": "淺藍"
+            'id': '201807202157',
+            'name': '活力花紋長筒牛仔褲',
+            'price': 1299,
+            'color': {
+                'code': 'DDF0FF',
+                'name': '淺藍'
             },
-            "size": "M",
-            "qty": 1
-        })
-        let uri = `../order/checkout`
+            'size': 'M',
+            'qty': 1
+        });
+        let uri = '../order/checkout';
         fetch(uri, {
             method: 'POST',
             body: JSON.stringify({
@@ -162,13 +162,13 @@ function onSubmit(event) {
                 // 'Accept': 'application/json'
             }
         })
-        .then(res=>res.json())
-        .then(json=>{
-            if(json){
-                let order_id = json.data.number
-                // console.log(order_id)
-                window.location.replace(`/thankyou.html?number=${order_id}`)
-            }
-        })
-    })
+            .then(res=>res.json())
+            .then(json=>{
+                if(json){
+                    let order_id = json.data.number;
+                    // console.log(order_id)
+                    window.location.replace(`/thankyou.html?number=${order_id}`);
+                }
+            });
+    });
 }
